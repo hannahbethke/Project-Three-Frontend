@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Project Three- Musician Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a sample portfolio website for a musician.  The website displays the musician's work, as well as their biography, contact information, and links to their YouTube channel and SoundCloud profile.
 
-## Available Scripts
+# User Stories
 
-In the project directory, you can run:
+- As a user, I should be able to view a well styled homepage with links to other pages: music, about, and contact
 
-### `npm start`
+- On the music page, as a user, I will be able to view a list of songs the musician has made and and click on each song to hear a short audio sample
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    - On this page, I will also be able to click on links to the musician's YouTube channel and SoundCloud profile
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- On the about page, as a user, I will be able to view the musician's biography and pictures of the musician
 
-### `npm test`
+- On the contact page, as a user, I will be able to view a form to subscribe to the musician's newsletter for events and music release updates
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- As the admin of this website, the musician should be able to manage the content of the page by logging in through a hidden URL
 
-### `npm run build`
+- Once logged in, the musician will be able to use forms on the music page to create new content and delete current content from the page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node
+- React
+- Express
+- Mongoose
+- MongoDB
 
-### `npm run eject`
+# Screenshots
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Wireframes:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Wireframes](public/assets/screenshots/Wireframe1.png)
+![Wireframes](public/assets/screenshots/Wireframe2.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- ERD
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Wireframes](public/assets/screenshots/ERD.png)
 
-## Learn More
+- Screenshots of final product
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Getting Started
 
-### Code Splitting
+[Click here](https://trello.com/invite/b/8qPUbezZ/135fe9b3bd995c501d78987d35b1fd1d/project-three) to see the project plan created with Trello.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Click here to see the deployed app!
 
-### Analyzing the Bundle Size
+# Future Enhancements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Admin of the site will be able to use forms on each page to manage all of the portfolio content
 
-### Making a Progressive Web App
+- Admin's login will be protected by authentication via sessions/bcrypt or Google Firebase
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Will include user stories from above that are not completed by the project deadline
 
-### Advanced Configuration
+# Unsolved Problems
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- TBD
