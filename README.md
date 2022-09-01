@@ -26,6 +26,7 @@ This project is a sample portfolio website for a musician.  The website displays
 - Express
 - Mongoose
 - MongoDB
+- Material UI
 
 # Screenshots
 
