@@ -11,3 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav {
+  color: white;
+  background-color: rgba(0, 0, 0, .8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navName {
+  align-items: left;
+}
+  
+a {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  font-size: large;
+}
+.songCard {
+  max-height: 400px;
+  max-width: fit-content;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-width: 4px;
+}
