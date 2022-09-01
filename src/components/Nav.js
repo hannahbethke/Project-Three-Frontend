@@ -5,7 +5,7 @@ const Nav = () => {
     return (
         <div className="nav">
             <Link to="/">
-                <div>ARTIST NAME</div>
+                <div>Noah B</div>
             </Link>
             <Link to="/about">
                 <div>About</div>
