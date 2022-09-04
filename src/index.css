@@ -123,10 +123,6 @@ a {
   background-color: rgba(134, 131, 131, 0.7);
 }
 
-/* img {
-  max-height: 45rem;
-} */
-
 p {
   text-indent: 50px;
   text-align: justify;
@@ -135,12 +131,31 @@ p {
 
 /* Music Page */
 
+.musicPageContainer {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  background: linear-gradient(
+    to right, 
+    black 0%,
+    black 50%,
+    rgb(48, 48, 48) 50%,
+    rgb(48, 48, 48) 100%
+  );
+  color: rgb(213, 213, 213);
+}
+
+.musicPageImg {
+  max-height: 50%;
+}
+
 .songCard {
   max-height: 400px;
-  max-width: fit-content;
+  width: 500px;
   scroll-behavior: smooth;
   overflow-y: scroll;
   scrollbar-width: 4px;
 }
-
-

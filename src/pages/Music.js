@@ -13,6 +13,7 @@ import SkipNextIcon from '@mui/icons-material/SkipNext';
 import Stack from '@mui/material/Stack';
 import LinearProgress from '@mui/material/LinearProgress';
 // import { Title } from '@mui/icons-material';
+import image from "../images/shadow.jpg";
 
 const Music = ({ songs }) => {
     const theme = useTheme();
@@ -29,15 +30,18 @@ const Music = ({ songs }) => {
 
     const loaded = () => {
         return (
-            <>
-                <h1>Music Page</h1>
+            <div className="musicPageContainer"  >
+                <div className="musicPageImgDiv">
+                    <img className="musicPageImg" src={require("../images/piano.jpg")} alt="piano" />
+                </div>
+        
                 <div className="songCard">
                     { 
                         songs.map((song) => {
                             return (
                                 <div key={song._id}>
                                     <Card sx={{ display: 'flex' }}>
-                                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column'}}>
                                         <CardContent sx={{ flex: '1 0 auto' }}>
                                         <Typography component="div" variant="h5">
                                             { song.title }
@@ -62,7 +66,7 @@ const Music = ({ songs }) => {
                                         component="img"
                                         sx={{ width: 151 }}
                                         image={song.image}
-                                        alt="albumn cover"
+                                        alt="album cover"
                                     />
                                     </Card>
                                 </div>
@@ -70,7 +74,7 @@ const Music = ({ songs }) => {
                         })
                     }
                 </div>
-            </>
+            </div>
         );
     };
 
