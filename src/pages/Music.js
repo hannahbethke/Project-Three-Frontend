@@ -13,7 +13,7 @@ import SkipNextIcon from '@mui/icons-material/SkipNext';
 import Stack from '@mui/material/Stack';
 import LinearProgress from '@mui/material/LinearProgress';
 // import { Title } from '@mui/icons-material';
-import image from "../images/shadow.jpg";
+// import image from "../images/shadow.jpg";
 
 const Music = ({ songs }) => {
     const theme = useTheme();
