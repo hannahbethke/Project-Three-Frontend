@@ -4,16 +4,17 @@ const Homepage = () => {
     return (
         <>
             <div className="homepageContainer">
+
                 <div className="homepageLeft">
-                    <img src={require("../images/headshot1.jpg")} alt="headshot" />
+                    <img className="homepageImg" src={require("../images/headshot1.jpg")} alt="headshot" />
                 </div>
 
-                <div className="homepageRight">
+                <div className="homepageRight"></div>
 
-                </div>
                 <div className="overlay">
-                    NO<span>AH</span>
+                    NO<span className="homepageSpan">AH</span>
                 </div>
+
             </div>
         </>
     );
