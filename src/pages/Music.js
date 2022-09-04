@@ -74,6 +74,9 @@ const Music = ({ songs }) => {
                         })
                     }
                 </div>
+                <div className="musicPageImg2">
+                <img className="musicPageImg2" src={require("../images/headshot2.jpg")} alt="makekin" />
+                </div>
             </div>
         );
     };

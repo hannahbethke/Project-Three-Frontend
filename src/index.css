@@ -138,6 +138,7 @@ p {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  /* background-color: black; */
   background: linear-gradient(
     to right, 
     black 0%,
@@ -150,6 +151,10 @@ p {
 
 .musicPageImg {
   max-height: 50%;
+}
+
+.musicPageImg2 {
+  max-height: 60%;
 }
 
 .songCard {
