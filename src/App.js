@@ -25,6 +25,31 @@ function App() {
       }
   ;}
 
+  const createSongs = async (song) => {
+    try {
+      await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'Application/json'
+        },
+        body: JSON.stringify(song)
+      });
+      getSongs();
+    } catch (error) {
+      // TO DO
+    }
+  };
+
+  // const deleteSong = async (song) => {
+  //   try {
+  //     await fetch(API_URL, {
+
+  //     })
+  //   } catch (error) {
+      
+  //   }
+  // }
+
   useEffect(() => {
       getSongs();
   }, []);
@@ -38,7 +63,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/music" element={<Music songs={songs} />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/nslp" element={<Admin songs={songs} />} />
+        <Route path="/nslp" element={<Admin songs={songs} createSongs={createSongs}/>} />
       </Routes>
     </div>
   );
