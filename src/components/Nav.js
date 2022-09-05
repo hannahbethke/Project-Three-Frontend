@@ -6,18 +6,18 @@ const Nav = () => {
         <div className="nav">
             <div className="navName">
                 <Link to="/">
-                    <span className="navSpan">Noah B</span>
+                    <div><span className="navSpan">NoahB</span></div>
                 </Link>
             </div>
             <div className="navPages">
                 <Link to="/about">
-                    About
+                    about
                 </Link>
                 <Link to="/music">
-                    Music
+                    music
                 </Link>
                 <Link to="/contact">
-                    Contact
+                    contact
                 </Link>
             </div>
         </div>
