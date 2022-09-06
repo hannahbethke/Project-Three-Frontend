@@ -14,7 +14,7 @@ import Show from './pages/Show';
 function App() {
   const [ songs, setSongs ] = useState(null);
 
-  const API_URL = 'http://localhost:4000/api/songs';
+  const API_URL = 'https://ancient-cove-76773.herokuapp.com/';
 
   const getSongs = async () => {
       try {
