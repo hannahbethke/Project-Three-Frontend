@@ -6,6 +6,8 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
+import Item from '@mui/material/ListItem';
 
 
 const Admin = ({ songs, createSongs }) => {
@@ -57,17 +59,16 @@ const Admin = ({ songs, createSongs }) => {
     return (
         <div className="adminContainer">
             <div className="adminForm">
-            <h1>Admin</h1>
-            <form onSubmit={handleAdminSubmit}>
-                <input type="text" value={guess} onChange={handleAdminFormChange} />
-                <input type="submit" value='Submit' />
-            </form>
-            </div>
+                <h1>Admin</h1>
+                <form onSubmit={handleAdminSubmit}>
+                    <input type="text" value={guess} onChange={handleAdminFormChange} />
+                    <input type="submit" value='Submit' />
+                </form>
+                </div>
 
            { access ? 
 
            <>
-            <h2>Access Granted</h2>
             <div className="adminRight">
                 <div className="songCard">
                 { 
@@ -76,15 +77,15 @@ const Admin = ({ songs, createSongs }) => {
                             <div className="eachSong" key={song._id}>
                                 <Card sx={{ display: 'flex' }}>
                                 <Box className="cardContent" sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
-                                            <CardContent  sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
-                                            <Typography sx={{color:'rgb(213, 213, 213)'}} component="div" variant="h3">
-                                                { song.title }
-                                            </Typography>
-                                            <Link to={`/mslp/${song._id}`}>
-                                                <h5>Edit Image</h5>
-                                            </Link>
-                                            </CardContent>
-                                        </Box>
+                                    <CardContent  sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
+                                    <Typography sx={{color:'rgb(213, 213, 213)'}} component="div" variant="h3">
+                                        { song.title }
+                                    </Typography>
+                                    <Link to={`/mslp/${song._id}`}>
+                                        <h5>Edit Image</h5>
+                                    </Link>
+                                    </CardContent>
+                                </Box>
                                 <CardMedia
                                     component="img"
                                     sx={{ width: 300 }}
@@ -99,10 +100,16 @@ const Admin = ({ songs, createSongs }) => {
                 </div>
             </div>
             <div className="adminLeft">
-                <div className="songForm">
-                    <h2>Upload New Photo:</h2>
-                    <form onSubmit={handleNewSongSubmit}>
-                        <label>Photo Title: </label>  
+                <div className="songFormDiv">
+                    <Stack >
+                    <Item>
+                    <h2>Upload New Photo</h2>
+                    </Item>
+                    <Item>
+                    <form className="songForm" onSubmit={handleNewSongSubmit}>
+                        <Stack spacing={4}>
+                        <Item>
+                        <label>Photo Title </label>  
                         <input 
                             type="text" 
                             name="title" 
@@ -111,7 +118,9 @@ const Admin = ({ songs, createSongs }) => {
                             onChange = {handleSongFormChange}
                             required
                         />
-                        <label>Artist Name: </label>  
+                        </Item>
+                        <Item>
+                        <label>Artist Name </label>
                         <input
                             type="text"
                             name="artist" 
@@ -120,7 +129,9 @@ const Admin = ({ songs, createSongs }) => {
                             onChange = {handleSongFormChange}
                             required
                         />
-                        <label>Collection: </label>
+                        </Item>
+                        <Item>
+                        <label>Collection </label>
                         <input
                             type="text"
                             name="photoCollection" 
@@ -129,7 +140,9 @@ const Admin = ({ songs, createSongs }) => {
                             onChange = {handleSongFormChange}
                             required
                         />
-                        <label>Image URL: </label>
+                        </Item>
+                        <Item>
+                        <label>Image URL </label>
                         <input
                             type="text"
                             name="image" 
@@ -137,7 +150,9 @@ const Admin = ({ songs, createSongs }) => {
                             value={newSong.image} 
                             onChange = {handleSongFormChange}
                         />
-                        <label>Date Added: </label>
+                        </Item>
+                        <Item>
+                        <label>Date Added </label>
                         <input
                             type="text"
                             name="dateAdded" 
@@ -146,11 +161,17 @@ const Admin = ({ songs, createSongs }) => {
                             onChange = {handleSongFormChange}
                             required
                         />
-                        <input type="submit" value="Submit"/>
+                        </Item>
+                        <Item>
+                        <input className="submitButton" type="submit" value="Submit"/>
+                        </Item>
+                        </Stack>
                     </form>
+                    </Item>
+                    </Stack>
                 </div>
             </div>
-           </> : <h2>Access Denied</h2> }
+           </> : <h2 className="adminFormH2">Access Denied</h2> }
         </div>
         
     );
