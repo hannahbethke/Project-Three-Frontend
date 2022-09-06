@@ -14,6 +14,11 @@ code {
 }
 
 @font-face {
+  font-family: Portico-Light;
+  src: url("./fonts/Portico-Light.otf");
+}
+
+@font-face {
   font-family: Portico-Stencil;
   src: url("./fonts/Portico-Stencil.otf");
 }
@@ -316,6 +321,8 @@ code {
   .contactPage {
     background-color: rgb(213, 213, 213);
     min-height: 100vh;
+    font-family: Portico-Light;
+    font-size: larger;
   }
 
   .contactPageImg {

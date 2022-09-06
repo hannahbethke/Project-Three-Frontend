@@ -22,7 +22,7 @@ const Contact = () => {
         <div className="contactPage">
             <img className="contactPageImg" src={require("../images/pexels-merlin-lightpainting3.jpg")} alt="Portrait" />
             <h1>Merlin Lightpainting</h1>
-            <h2>Photographer, Lightpainter, NFT Artist</h2>
+            <h3>Photographer, Lightpainter, NFT Artist</h3>
             <h4>Follow to Support!</h4>
             <ul className="contactButtons">
             <li>
