@@ -5,14 +5,15 @@ const Homepage = () => {
         <div className="homepageContainer">
 
             <div className="homepageLeft">
-                <img className="homepageImg" src={require("../images/pexels-merlin-lightpainting-11308623.jpg")} alt="headshot" />
+                
             </div>
 
             <div className="homepageRight">
+            <img className="homepageImg" src={require("../images/pexels-merlin-lightpainting2.jpg")} alt="headshot" />
             </div>
 
             <div className="overlay">
-                NO<span className="homepageSpan">AH</span>
+                <h1 className="overlayH1">Merlin</h1>
             </div>
 
         </div>
