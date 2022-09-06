@@ -30,7 +30,7 @@ const Music = ({ songs }) => {
                 </div>
 
                 <div className="photographyH1">
-                    <h1 className="photographyH1">Photography Collections</h1>
+                    <h1 className="photographyH1">Photography</h1>
                 </div>
 
                 <div className="photoContainer">
@@ -56,7 +56,7 @@ const Music = ({ songs }) => {
                                         </Box>
                                         <CardMedia
                                             component="img"
-                                            sx={{ width: 900, maxHeight: 800}}
+                                            sx={{ width: 900, maxHeight: 700}}
                                             image={song.image}
                                             alt="album cover"
                                         />
