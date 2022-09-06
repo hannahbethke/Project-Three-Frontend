@@ -9,6 +9,7 @@ import Contact from './pages/Contact';
 import Admin from './pages/Admin';
 import './index.css';
 import './App.css';
+import Show from './pages/Show';
 
 function App() {
   const [ songs, setSongs ] = useState(null);
@@ -64,7 +65,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/artwork" element={<Music songs={songs} />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/nslp" element={<Admin songs={songs} createSongs={createSongs} deleteSongs={deleteImage}/>} />
+        <Route path="/mslp" element={<Admin songs={songs} createSongs={createSongs} />} />
+        <Route path="/mslp/:id" element={<Show songs={songs} deleteImage={deleteImage}/>} />
       </Routes>
     </div>
   );
