@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -8,7 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
 
-const Admin = ({ songs, createSongs, deleteImage }) => {
+const Admin = ({ songs, createSongs }) => {
 
     const [guess, setGuess] = useState('');
     const [access, setAccess] = useState(false);
@@ -19,8 +19,6 @@ const Admin = ({ songs, createSongs, deleteImage }) => {
         image: "",
         dateAdded: ""
     });
-
-    const { id } = useParams();
 
     const handleAdminFormChange = (e) => {
         setGuess(e.target.value);
@@ -56,10 +54,6 @@ const Admin = ({ songs, createSongs, deleteImage }) => {
         });
     };
 
-    const handleDeleteBtnClick = () => {
-        deleteImage(id);
-    };
-
     return (
         <div className="adminContainer">
             <div className="adminForm">
@@ -86,12 +80,9 @@ const Admin = ({ songs, createSongs, deleteImage }) => {
                                             <Typography sx={{color:'rgb(213, 213, 213)'}} component="div" variant="h3">
                                                 { song.title }
                                             </Typography>
-                                            <Typography variant="h5" color="rgb(213, 213, 213)" component="div">
-                                                { song.photoCollection }
-                                            </Typography>
-                                            <Typography variant="h6" color="rgb(213, 213, 213)" component="div">
-                                                { song.dateAdded }
-                                            </Typography>
+                                            <Link to={`/mslp/${song._id}`}>
+                                                <h5>Edit Image</h5>
+                                            </Link>
                                             </CardContent>
                                         </Box>
                                 <CardMedia
@@ -101,7 +92,6 @@ const Admin = ({ songs, createSongs, deleteImage }) => {
                                     alt="album cover"
                                 />
                                 </Card>
-                                <button onClick={handleDeleteBtnClick}>Delete</button>
                             </div>
                         )
                     })
