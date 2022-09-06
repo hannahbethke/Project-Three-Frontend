@@ -1,22 +1,16 @@
 import React from 'react';
 // import { useEffect, useState } from 'react';
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import SkipNextIcon from '@mui/icons-material/SkipNext';
 import Stack from '@mui/material/Stack';
 import LinearProgress from '@mui/material/LinearProgress';
 // import { Title } from '@mui/icons-material';
-// import image from "../images/shadow.jpg";
+import image from "../images/pexels-merlin-lightpainting4.jpg";
 
 const Music = ({ songs }) => {
-    const theme = useTheme();
     
     const loading = () => {
         return (
@@ -30,51 +24,44 @@ const Music = ({ songs }) => {
 
     const loaded = () => {
         return (
-            <div className="musicPageContainer"  >
-        
-                <div className="musicPageImgDiv">
-                    <img className="musicPageImg" src={require("../images/piano.jpg")} alt="piano" />
+            <>
+                <div className="artworkImgDiv" style={{ backgroundImage:`url(${image})`, backgroundRepeat: "no-repeat", backgroundSize:"cover" }}>
+                    <div className="artworkImgContainer">
+                        <h1 className="artworkH1">Merlin Lightpainting</h1>
+                    </div>
                 </div>
-                <h1>Discography</h1>
 
-        
-                <div className="songCard">
-                <h1>Discography</h1>
+                <div className="photographyH1">
+                    <h1 className="photographyH1">Photography Collections</h1>
+                </div>
+
+                <div className="photoContainer">
+                    
+                    <div className="songCard">
                     { 
                         songs.map((song) => {
                             return (
                                 <div className="eachSong" key={song._id}>
                                     <Card sx={{ display: 'flex' }}>
-                                    <Box sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
-                                        <CardContent sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
-                                        <Typography sx={{color:'rgb(213, 213, 213)'}} component="div" variant="h5">
-                                            { song.title }
-                                        </Typography>
-                                        <Typography variant="subtitle1" color="rgb(213, 213, 213)" component="div">
-                                            { song.artist }
-                                        </Typography>
-                                        <Typography variant="subtitle2" color="rgb(213, 213, 213)" component="div">
-                                            { song.released }
-                                        </Typography>
-                                        </CardContent>
-                                        <Box sx={{ display: 'flex', alignItems: 'center', backgroundColor:'black', justifyContent: 'center', pl: 1, pb: 1 }}>
-                                        <IconButton aria-label="previous" sx={{color: 'rgb(213, 213, 213)'}}>
-                                            {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
-                                        </IconButton>
-                                        <IconButton aria-label="play/pause" sx={{color: 'rgb(213, 213, 213)'}}>
-                                            <PlayArrowIcon sx={{ height: 38, width: 38}} />
-                                        </IconButton>
-                                        <IconButton aria-label="next" sx={{color: 'rgb(213, 213, 213)'}}>
-                                            {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-                                        </IconButton>
+                                        <Box className="cardContent" sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
+                                            <CardContent  sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
+                                            <Typography sx={{color:'rgb(213, 213, 213)'}} component="div" variant="h3">
+                                                { song.title }
+                                            </Typography>
+                                            <Typography variant="h5" color="rgb(213, 213, 213)" component="div">
+                                                { song.photoCollection }
+                                            </Typography>
+                                            <Typography variant="h6" color="rgb(213, 213, 213)" component="div">
+                                                { song.dateAdded }
+                                            </Typography>
+                                            </CardContent>
                                         </Box>
-                                    </Box>
-                                    <CardMedia
-                                        component="img"
-                                        sx={{ width: 300 }}
-                                        image={song.image}
-                                        alt="album cover"
-                                    />
+                                        <CardMedia
+                                            component="img"
+                                            sx={{ width: 900, maxHeight: 800}}
+                                            image={song.image}
+                                            alt="album cover"
+                                        />
                                     </Card>
                                 </div>
                             )
@@ -84,6 +71,7 @@ const Music = ({ songs }) => {
                 <div className="musicPageImg2">
                 </div>
             </div>
+            </>
         );
     };
 

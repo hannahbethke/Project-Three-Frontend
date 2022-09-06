@@ -6,15 +6,15 @@ const Nav = () => {
         <div className="nav">
             <div className="navName">
                 <Link to="/">
-                    <div><span className="navSpan">NoahB</span></div>
+                    <div><span className="navSpan">M </span>light-painting</div>
                 </Link>
             </div>
             <div className="navPages">
                 <Link to="/about">
                     about
                 </Link>
-                <Link to="/music">
-                    music
+                <Link to="/artwork">
+                    artwork
                 </Link>
                 <Link to="/contact">
                     contact
@@ -22,6 +22,6 @@ const Nav = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Nav;

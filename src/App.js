@@ -40,15 +40,16 @@ function App() {
     }
   };
 
-  // const deleteSong = async (song) => {
-  //   try {
-  //     await fetch(API_URL, {
-
-  //     })
-  //   } catch (error) {
-      
-  //   }
-  // }
+  const deleteImage = async (id) => {
+    try {
+      await fetch(`${API_URL}/${id}`, {
+        method: 'DELETE'
+      });
+      getSongs();
+    } catch (error) {
+      // TODO
+    }
+  }
 
   useEffect(() => {
       getSongs();
@@ -61,9 +62,9 @@ function App() {
      <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<About />} />
-        <Route path="/music" element={<Music songs={songs} />} />
+        <Route path="/artwork" element={<Music songs={songs} />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/nslp" element={<Admin songs={songs} createSongs={createSongs}/>} />
+        <Route path="/nslp" element={<Admin songs={songs} createSongs={createSongs} deleteSongs={deleteImage}/>} />
       </Routes>
     </div>
   );

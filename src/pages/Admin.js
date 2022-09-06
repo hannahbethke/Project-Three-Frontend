@@ -1,27 +1,26 @@
 import React from 'react';
 import { useState } from 'react';
-import { useTheme } from '@mui/material/styles';
+import { useParams } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import SkipNextIcon from '@mui/icons-material/SkipNext';
 
-const Admin = ({ songs, createSongs }) => {
+
+const Admin = ({ songs, createSongs, deleteImage }) => {
 
     const [guess, setGuess] = useState('');
     const [access, setAccess] = useState(false);
     const [newSong, setNewSong] = useState({
         title: "",
         artist: "",
-        albumTitle: "",
+        photoCollection: "",
         image: "",
-        released: ""
-    })
+        dateAdded: ""
+    });
+
+    const { id } = useParams();
 
     const handleAdminFormChange = (e) => {
         setGuess(e.target.value);
@@ -48,13 +47,18 @@ const Admin = ({ songs, createSongs }) => {
     const handleNewSongSubmit = (e) => {
         e.preventDefault();
         createSongs(newSong);
+        setNewSong({
+            title: "",
+            artist: "",
+            photoCollection: "",
+            image: "",
+            dateAdded: ""
+        });
     };
 
-    const handleDeleteBtnClick = (e) => {
-
+    const handleDeleteBtnClick = () => {
+        deleteImage(id);
     };
-
-    const theme = useTheme();
 
     return (
         <div className="adminContainer">
@@ -77,30 +81,19 @@ const Admin = ({ songs, createSongs }) => {
                         return (
                             <div className="eachSong" key={song._id}>
                                 <Card sx={{ display: 'flex' }}>
-                                <Box sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
-                                    <CardContent sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
-                                    <Typography sx={{color:'rgb(213, 213, 213)'}} component="div" variant="h5">
-                                        { song.title }
-                                    </Typography>
-                                    <Typography variant="subtitle1" color="rgb(213, 213, 213)" component="div">
-                                        { song.artist }
-                                    </Typography>
-                                    <Typography variant="subtitle2" color="rgb(213, 213, 213)" component="div">
-                                        { song.released }
-                                    </Typography>
-                                    </CardContent>
-                                    <Box sx={{ display: 'flex', alignItems: 'center', backgroundColor:'black', justifyContent: 'center', pl: 1, pb: 1 }}>
-                                    <IconButton aria-label="previous" sx={{color: 'rgb(213, 213, 213)'}}>
-                                        {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
-                                    </IconButton>
-                                    <IconButton aria-label="play/pause" sx={{color: 'rgb(213, 213, 213)'}}>
-                                        <PlayArrowIcon sx={{ height: 38, width: 38}} />
-                                    </IconButton>
-                                    <IconButton aria-label="next" sx={{color: 'rgb(213, 213, 213)'}}>
-                                        {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-                                    </IconButton>
-                                    </Box>
-                                </Box>
+                                <Box className="cardContent" sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
+                                            <CardContent  sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
+                                            <Typography sx={{color:'rgb(213, 213, 213)'}} component="div" variant="h3">
+                                                { song.title }
+                                            </Typography>
+                                            <Typography variant="h5" color="rgb(213, 213, 213)" component="div">
+                                                { song.photoCollection }
+                                            </Typography>
+                                            <Typography variant="h6" color="rgb(213, 213, 213)" component="div">
+                                                { song.dateAdded }
+                                            </Typography>
+                                            </CardContent>
+                                        </Box>
                                 <CardMedia
                                     component="img"
                                     sx={{ width: 300 }}
@@ -117,13 +110,13 @@ const Admin = ({ songs, createSongs }) => {
             </div>
             <div className="adminLeft">
                 <div className="songForm">
-                    <h2>Upload New Song:</h2>
+                    <h2>Upload New Photo:</h2>
                     <form onSubmit={handleNewSongSubmit}>
-                        <label>Song Title: </label>  
+                        <label>Photo Title: </label>  
                         <input 
                             type="text" 
                             name="title" 
-                            placeholder="song title" 
+                            placeholder="photo title" 
                             value={newSong.title} 
                             onChange = {handleSongFormChange}
                             required
@@ -137,12 +130,12 @@ const Admin = ({ songs, createSongs }) => {
                             onChange = {handleSongFormChange}
                             required
                         />
-                        <label>Album Title: </label>
+                        <label>Collection: </label>
                         <input
                             type="text"
-                            name="albumTitle" 
-                            placeholder="album title" 
-                            value={newSong.albumTitle} 
+                            name="photoCollection" 
+                            placeholder="collection title" 
+                            value={newSong.photoCollection} 
                             onChange = {handleSongFormChange}
                             required
                         />
@@ -154,12 +147,12 @@ const Admin = ({ songs, createSongs }) => {
                             value={newSong.image} 
                             onChange = {handleSongFormChange}
                         />
-                        <label>Album Release Date: </label>
+                        <label>Date Added: </label>
                         <input
                             type="text"
-                            name="released" 
+                            name="dateAdded" 
                             placeholder="Month Day, Year" 
-                            value={newSong.released} 
+                            value={newSong.dateAdded} 
                             onChange = {handleSongFormChange}
                             required
                         />
