@@ -58,3 +58,4 @@ This project is a sample portfolio website for an artist.  The website displays 
 
 - Font Changes
 - Admin login page makes you login after you add or delete a photo
+- Create image database with Cloudinary
