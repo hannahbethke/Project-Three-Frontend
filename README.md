@@ -44,7 +44,7 @@ This project is a sample portfolio website for an artist.  The website displays 
 
 [Click here](https://trello.com/invite/b/8qPUbezZ/135fe9b3bd995c501d78987d35b1fd1d/project-three) to see the project plan created with Trello.
 
-Click here to see the deployed app!
+[Click here](https://vast-castle-55899.herokuapp.com/) to see the deployed app!
 
 # Future Enhancements
 
