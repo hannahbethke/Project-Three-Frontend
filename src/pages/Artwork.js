@@ -1,4 +1,4 @@
-import React from 'react';
+import artworkPageImg from '../assets/images/pexels-merlin-lightpainting4.jpg';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -6,9 +6,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import LinearProgress from '@mui/material/LinearProgress';
-import image from "../images/pexels-merlin-lightpainting4.jpg";
 
-const Music = ({ songs }) => {
+const Artwork = ({ songs }) => {
     
     const loading = () => {
         return (
@@ -23,7 +22,7 @@ const Music = ({ songs }) => {
     const loaded = () => {
         return (
             <>
-                <div className="artworkImgDiv" style={{ backgroundImage:`url(${image})`, backgroundRepeat: "no-repeat", backgroundSize:"cover" }}>
+                <div className="artworkImgDiv" style={{ backgroundImage:`url(${artworkPageImg})`, backgroundRepeat: "no-repeat", backgroundSize:"cover" }}>
                     <div className="artworkImgContainer">
                         <h1 className="artworkH1">Merlin Lightpainting</h1>
                     </div>
@@ -34,8 +33,8 @@ const Music = ({ songs }) => {
                 </div>
 
                 <div className="photoContainer">
-                    
                     <div className="songCard">
+
                     { 
                         songs.map((song) => {
                             return (
@@ -64,11 +63,10 @@ const Music = ({ songs }) => {
                                 </div>
                             )
                         })
-                    }
+                    };
+
+                    </div>
                 </div>
-                <div className="musicPageImg2">
-                </div>
-            </div>
             </>
         );
     };
@@ -76,4 +74,4 @@ const Music = ({ songs }) => {
     return songs ? loaded() : loading();
 };
 
-export default Music;
+export default Artwork;

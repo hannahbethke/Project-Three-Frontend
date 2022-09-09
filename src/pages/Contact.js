@@ -1,4 +1,4 @@
-import React from 'react';
+import contactPageImg from '../assets/images/pexels-merlin-lightpainting3.jpg'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import IconButton from '@mui/material/IconButton';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -20,7 +20,7 @@ const Contact = () => {
 
     return (
         <div className="contactPage">
-            <img className="contactPageImg" src={require("../images/pexels-merlin-lightpainting3.jpg")} alt="Portrait" />
+            <img className="contactPageImg" src={contactPageImg} alt="Portrait" />
             <h1>Merlin Lightpainting</h1>
             <h3>Photographer, Lightpainter, NFT Artist</h3>
             <h4>Follow to Support!</h4>

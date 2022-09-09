@@ -1,10 +1,10 @@
-import React from 'react';
+import aboutImg from '../assets/images/pexels-merlin-lightpainting1.jpg'
 
 const About = () => {
     return (
         <div className="aboutPageContainer">
             <div className="aboutImgDiv">
-                <img className="aboutImg" src={require("../images/pexels-merlin-lightpainting1.jpg")} alt="headshot" />
+                <img className="aboutImg" src={aboutImg} alt="face with blue and black eye mask" />
             </div>
             <div className="aboutPageBio">
                 <h1>MERLIN Light Painting </h1>
