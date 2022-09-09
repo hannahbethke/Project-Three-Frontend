@@ -1,14 +1,19 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Nav = () => {
     return (
         <div className="nav">
-            <div className="navName">
+
+            <div className="navLogo">
                 <Link to="/">
-                    <div><span className="navSpan">M </span>light-painting</div>
+                    <div className="navLogo">
+                        <span className="navSpan1">M</span>
+                        <span className="navSpan2">light-painting</span>
+                        
+                    </div>
                 </Link>
             </div>
+
             <div className="navPages">
                 <Link to="/about">
                     about
@@ -20,8 +25,9 @@ const Nav = () => {
                     contact
                 </Link>
             </div>
+
         </div>
     );
-}
+};
 
 export default Nav;

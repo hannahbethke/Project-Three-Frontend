@@ -52,7 +52,11 @@ This project is a sample portfolio website for an artist.  The website displays 
 
 - Admin's login will be protected by authentication via sessions/bcrypt or Google Firebase
 
-- Artwork will be displayed in collections rather than just one image at a time
+- Photos on Artwork page will be displayed as tiles rather than just one image at a time and can be clicked on to enlarge
+
+- Will add functional navbar burger menu for smaller screen sizes
+
+- Will update css to make mobile friendly
 
 # Unsolved Problems
 
