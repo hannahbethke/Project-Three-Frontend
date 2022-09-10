@@ -13,49 +13,49 @@ import './App.css';
 
 
 function App() {
-  const [ songs, setSongs ] = useState(null);
+  const [ photos, setPhotos ] = useState(null);
 
-  // const API_URL = 'https://ancient-cove-76773.herokuapp.com/api/songs/';
+  // const API_URL = 'https://ancient-cove-76773.herokuapp.com/api/photos/';
   const API_URL = 'http://localhost:4000/api/photos';
 
-  const getSongs = async () => {
+  const getPhotos = async () => {
       try {
           const response = await fetch(API_URL);
-          const songData = await response.json();
-          setSongs(songData);
+          const photoData = await response.json();
+          setPhotos(photoData);
       } catch (error) {
           // TODO: add logic to handle error
       }
   ;}
 
-  const createSongs = async (song) => {
+  const createPhoto = async (photo) => {
     try {
       await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-type': 'Application/json'
         },
-        body: JSON.stringify(song)
+        body: JSON.stringify(photo)
       });
-      getSongs();
+      getPhotos();
     } catch (error) {
       // TO DO
     }
   };
 
-  const deleteImage = async (id) => {
+  const deletePhoto = async (id) => {
     try {
       await fetch(`${API_URL}/${id}`, {
         method: 'DELETE'
       });
-      getSongs();
+      getPhotos();
     } catch (error) {
       // TODO
     }
   }
 
   useEffect(() => {
-      getSongs();
+      getPhotos();
   }, []);
 
 
@@ -65,10 +65,10 @@ function App() {
      <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<About />} />
-        <Route path="/artwork" element={<Artwork songs={songs} />} />
+        <Route path="/artwork" element={<Artwork photos={photos} />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/mslp" element={<Admin songs={songs} createSongs={createSongs} />} />
-        <Route path="/mslp/:id" element={<Show songs={songs} deleteImage={deleteImage}/>} />
+        <Route path="/mslp" element={<Admin photos={photos} createPhoto={createPhoto} />} />
+        <Route path="/mslp/:id" element={<Show photos={photos} deletePhoto={deletePhoto}/>} />
       </Routes>
     </div>
   );

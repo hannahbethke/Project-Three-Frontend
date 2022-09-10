@@ -8,12 +8,11 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Item from '@mui/material/ListItem';
 
-
-const Admin = ({ songs, createSongs }) => {
+const Admin = ({ photos, createPhotos }) => {
 
     const [guess, setGuess] = useState('');
     const [access, setAccess] = useState(false);
-    const [newSong, setNewSong] = useState({
+    const [newPhoto, setNewPhoto] = useState({
         title: "",
         artist: "",
         photoCollection: "",
@@ -33,20 +32,20 @@ const Admin = ({ songs, createSongs }) => {
         } else {
             setAccess(false);
             setGuess('');
-        }
+        };
     };
 
-    const handleSongFormChange = (e) => {
-        setNewSong((prevState) => ({
+    const handlePhotoFormChange = (e) => {
+        setNewPhoto((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value
-        }))
+        }));
     };
 
-    const handleNewSongSubmit = (e) => {
+    const handleNewPhotoSubmit = (e) => {
         e.preventDefault();
-        createSongs(newSong);
-        setNewSong({
+        createPhotos(newPhoto);
+        setNewPhoto({
             title: "",
             artist: "",
             photoCollection: "",
@@ -57,123 +56,134 @@ const Admin = ({ songs, createSongs }) => {
 
     return (
         <div className="adminContainer">
+
             <div className="adminForm">
                 <h1>Admin</h1>
                 <form onSubmit={handleAdminSubmit}>
                     <input type="text" value={guess} onChange={handleAdminFormChange} />
                     <input type="submit" value='Submit' />
                 </form>
-                </div>
+            </div>
 
            { access ? 
 
            <>
-            <div className="adminRight">
-                <div className="songCard">
-                { 
-                    songs.map((song) => {
-                        return (
-                            <div className="eachSong" key={song._id}>
-                                <Card sx={{ display: 'flex' }}>
-                                <Box className="cardContent" sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
-                                    <CardContent  sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
-                                    <Typography sx={{color:'rgb(213, 213, 213)'}} component="div" variant="h3">
-                                        { song.title }
-                                    </Typography>
-                                    <Link to={`/mslp/${song._id}`}>
-                                        <h5>Edit Image</h5>
-                                    </Link>
-                                    </CardContent>
-                                </Box>
-                                <CardMedia
-                                    component="img"
-                                    sx={{ width: 300 }}
-                                    image={song.image}
-                                    alt="album cover"
-                                />
-                                </Card>
-                            </div>
-                        )
-                    })
-                }
+           
+                <div className="adminRight">
+                    <div className="photoCard">
+                        { 
+                            photos.map((photo) => {
+
+                                return (
+                                    <div className="eachPhoto" key={photo._id}>
+                                        <Card sx={{ display: 'flex' }}>
+                                            <Box className="cardContent" sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
+                                                <CardContent  sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
+                                                <Typography sx={{color:'rgb(213, 213, 213)'}} component="div" variant="h3">
+                                                    { photo.title }
+                                                </Typography>
+                                                <Link to={`/mslp/${photo._id}`}>
+                                                    <h5>Edit Image</h5>
+                                                </Link>
+                                                </CardContent>
+                                            </Box>
+                                            <CardMedia
+                                                component="img"
+                                                sx={{ width: 300 }}
+                                                image={photo.image}
+                                                alt="album cover"
+                                            />
+                                        </Card>
+                                    </div>
+                                );
+
+                            })
+                        };                        
+                    </div>
                 </div>
-            </div>
-            <div className="adminLeft">
-                <div className="songFormDiv">
-                    <Stack >
-                    <Item>
-                    <h2>Upload New Photo</h2>
-                    </Item>
-                    <Item>
-                    <form className="songForm" onSubmit={handleNewSongSubmit}>
-                        <Stack spacing={4}>
-                        <Item>
-                        <label>Photo Title </label>  
-                        <input 
-                            type="text" 
-                            name="title" 
-                            placeholder="photo title" 
-                            value={newSong.title} 
-                            onChange = {handleSongFormChange}
-                            required
-                        />
-                        </Item>
-                        <Item>
-                        <label>Artist Name </label>
-                        <input
-                            type="text"
-                            name="artist" 
-                            placeholder="artist name" 
-                            value={newSong.artist} 
-                            onChange = {handleSongFormChange}
-                            required
-                        />
-                        </Item>
-                        <Item>
-                        <label>Collection </label>
-                        <input
-                            type="text"
-                            name="photoCollection" 
-                            placeholder="collection title" 
-                            value={newSong.photoCollection} 
-                            onChange = {handleSongFormChange}
-                            required
-                        />
-                        </Item>
-                        <Item>
-                        <label>Image URL </label>
-                        <input
-                            type="text"
-                            name="image" 
-                            placeholder="image URL"
-                            value={newSong.image} 
-                            onChange = {handleSongFormChange}
-                        />
-                        </Item>
-                        <Item>
-                        <label>Date Added </label>
-                        <input
-                            type="text"
-                            name="dateAdded" 
-                            placeholder="Month Day, Year" 
-                            value={newSong.dateAdded} 
-                            onChange = {handleSongFormChange}
-                            required
-                        />
-                        </Item>
-                        <Item>
-                        <input className="submitButton" type="submit" value="Submit"/>
-                        </Item>
+
+                <div className="adminLeft">
+                    <div className="photoFormDiv">
+                        <Stack>
+
+                            <Item>
+                                <h2>Upload New Photo</h2>
+                            </Item>
+
+                            <Item>
+                                <form className="photoForm" onSubmit={handleNewPhotoSubmit}>
+                                    <Stack spacing={4}>
+                                        <Item>
+                                            <label>Photo Title </label>  
+                                            <input 
+                                                type="text" 
+                                                name="title" 
+                                                placeholder="photo title" 
+                                                value={newPhoto.title} 
+                                                onChange = {handlePhotoFormChange}
+                                                required
+                                            />
+                                        </Item>
+                                        <Item>
+                                            <label>Artist Name </label>
+                                            <input
+                                                type="text"
+                                                name="artist" 
+                                                placeholder="artist name" 
+                                                value={newPhoto.artist} 
+                                                onChange = {handlePhotoFormChange}
+                                                required
+                                            />
+                                        </Item>
+                                        <Item>
+                                            <label>Collection </label>
+                                            <input
+                                                type="text"
+                                                name="photoCollection" 
+                                                placeholder="collection title" 
+                                                value={newPhoto.photoCollection} 
+                                                onChange = {handlePhotoFormChange}
+                                                required
+                                            />
+                                        </Item>
+                                        <Item>
+                                            <label>Image URL </label>
+                                            <input
+                                                type="text"
+                                                name="image" 
+                                                placeholder="image URL"
+                                                value={newPhoto.image} 
+                                                onChange = {handlePhotoFormChange}
+                                            />
+                                        </Item>
+                                        <Item>
+                                            <label>Date Added </label>
+                                            <input
+                                                type="text"
+                                                name="dateAdded" 
+                                                placeholder="Month Day, Year" 
+                                                value={newPhoto.dateAdded} 
+                                                onChange = {handlePhotoFormChange}
+                                                required
+                                            />
+                                        </Item>
+                                        <Item>
+                                            <input className="submitButton" type="submit" value="Submit"/>
+                                        </Item>
+                                    </Stack>
+                                </form>
+                            </Item>
+
                         </Stack>
-                    </form>
-                    </Item>
-                    </Stack>
+                    </div>
                 </div>
-            </div>
-           </> : <h2 className="adminFormH2">Access Denied</h2> }
+
+             </>
+
+            : <h2 className="adminFormH2">Access Denied</h2> };
+
         </div>
-        
     );
-}
+};
 
 export default Admin;

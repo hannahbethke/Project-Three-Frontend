@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -8,14 +7,14 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import LinearProgress from '@mui/material/LinearProgress';
 
-const Show = ({ songs, deleteImage }) => {
+const Show = ({ photos, deletePhoto }) => {
 
     const navigate = useNavigate();
     const { id } = useParams();
-    const image = songs ? songs.find(s => s._id === id) : null;
+    const image = photos ? photos.find(s => s._id === id) : null;
 
     const handleDelete = () => {
-        deleteImage(id);
+        deletePhoto(id);
         navigate('/mslp')
     };
 
@@ -60,7 +59,7 @@ const Show = ({ songs, deleteImage }) => {
         )        
     }
 
-    return songs ? loaded() : loading();
+    return photos ? loaded() : loading();
 
 }
 

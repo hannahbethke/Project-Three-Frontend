@@ -1,6 +1,7 @@
 import aboutImg from '../assets/images/pexels-merlin-lightpainting1.jpg';
 
 const About = () => {
+    
     return (
         <div className="aboutPageContainer">
 

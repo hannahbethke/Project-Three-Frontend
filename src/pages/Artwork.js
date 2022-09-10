@@ -7,71 +7,104 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import LinearProgress from '@mui/material/LinearProgress';
 
-const Artwork = ({ songs }) => {
+const Artwork = ({ photos }) => {
     
     const loading = () => {
+
         return (
             <>
                 <Stack sx={{ width: '100%', color: 'grey.500' }} spacing={2}>
                     <LinearProgress color="inherit" />
                 </Stack>
             </>
-        )
+        );
     };
 
     const loaded = () => {
+
         return (
             <>
+
                 <div className="artworkImgDiv" style={{ backgroundImage:`url(${artworkPageImg})`, backgroundRepeat: "no-repeat", backgroundSize:"cover" }}>
-                    <div className="artworkImgContainer">
+                    <div className="artworkH1Div">
                         <h1 className="artworkH1">Merlin Lightpainting</h1>
                     </div>
                 </div>
 
-                <div className="photographyH1">
+                <div className="photographyH1Div">
                     <h1 className="photographyH1">Photography</h1>
                 </div>
 
                 <div className="photoContainer">
-                    <div className="songCard">
+                    <div className="photoCard">
+                        { 
+                            photos.map((photo) => {
 
-                    { 
-                        songs.map((song) => {
-                            return (
-                                <div className="eachSong" key={song._id}>
-                                    <Card sx={{ display: 'flex' }}>
-                                        <Box className="cardContent" sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
-                                            <CardContent  sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
-                                            <Typography sx={{color:'rgb(213, 213, 213)'}} component="div" variant="h3">
-                                                { song.title }
-                                            </Typography>
-                                            <Typography variant="h5" color="rgb(213, 213, 213)" component="div">
-                                                { song.photoCollection }
-                                            </Typography>
-                                            <Typography variant="h6" color="rgb(213, 213, 213)" component="div">
-                                                { song.dateAdded }
-                                            </Typography>
-                                            </CardContent>
-                                        </Box>
-                                        <CardMedia
-                                            component="img"
-                                            sx={{ width: 900, maxHeight: 700}}
-                                            image={song.image}
-                                            alt="album cover"
-                                        />
-                                    </Card>
-                                </div>
-                            )
-                        })
-                    };
+                                return (
+                                    <div class="gallery">
+                                        
+                                        
+                                    <div className="eachPhoto" key={photo._id}>
+                                        <Card sx={{ display: 'flex' }}>
+                                            <Box className="cardContent" sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
+                                                <CardContent  sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
+                                                <h1>
+                                                    { photo.title }
+                                                </h1>
+                                                <h2 variant="h2" color="rgb(213, 213, 213)" component="div">
+                                                    { photo.photoCollection }
+                                                </h2>
+                                                </CardContent>
+                                            </Box>
+                                            <CardMedia
+                                                component="img"
+                                                sx={{ width: 900, maxHeight: 700}}
+                                                image={photo.image}
+                                                alt="album cover"
+                                            />
+                                        </Card>
+                                    </div>
 
+                                    </div>
+// 
+
+
+
+
+
+
+                                    // <div className="eachPhoto" key={photo._id}>
+                                    //     <Card sx={{ display: 'flex' }}>
+                                    //         <Box className="cardContent" sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
+                                    //             <CardContent  sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
+                                    //             <h1>
+                                    //                 { photo.title }
+                                    //             </h1>
+                                    //             <h2 variant="h2" color="rgb(213, 213, 213)" component="div">
+                                    //                 { photo.photoCollection }
+                                    //             </h2>
+                                    //             </CardContent>
+                                    //         </Box>
+                                    //         <CardMedia
+                                    //             component="img"
+                                    //             sx={{ width: 900, maxHeight: 700}}
+                                    //             image={photo.image}
+                                    //             alt="album cover"
+                                    //         />
+                                    //     </Card>
+                                    // </div>
+                                );
+
+                            })
+                        };
                     </div>
                 </div>
+
             </>
         );
     };
 
-    return songs ? loaded() : loading();
+    return photos ? loaded() : loading();
 };
 
 export default Artwork;

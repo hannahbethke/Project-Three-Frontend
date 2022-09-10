@@ -1,6 +1,7 @@
 import homepageImg from '../assets/images/pexels-merlin-lightpainting2.jpg';
 
 const Homepage = () => {
+    
     return (
         <div className="homepageContainer">
 
