@@ -17,7 +17,7 @@ const Artwork = ({ photos }) => {
                 </Stack>
             </>
         );
-        
+
     };
 
     const loaded = () => {
