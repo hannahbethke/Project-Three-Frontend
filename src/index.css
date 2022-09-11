@@ -197,7 +197,7 @@ code {
     background-color: black;
   }
 
-  /* .photoContainer {
+  .photoContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(1, 1fr);
@@ -206,7 +206,7 @@ code {
     margin: 0 auto;
     color: rgb(213, 213, 213);
     background-color: black;
-  } */
+  }
 
   .photoCard {
     grid-column: 1/3;
@@ -234,18 +234,6 @@ code {
     line-height: 15px;
     color:rgb(213, 213, 213);
   }
-
-  /* .musicPageImg {
-    max-height: 50%;
-    box-shadow: 5px 10px 18px #888888;
-  } */
-
-  .photoCard {
-    display: flex;
-    
-}
-
-
 
 
 /* Admin Page  */

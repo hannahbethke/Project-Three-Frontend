@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import LinearProgress from '@mui/material/LinearProgress';
 
@@ -18,6 +17,7 @@ const Artwork = ({ photos }) => {
                 </Stack>
             </>
         );
+        
     };
 
     const loaded = () => {
@@ -40,10 +40,7 @@ const Artwork = ({ photos }) => {
                         { 
                             photos.map((photo) => {
 
-                                return (
-                                    <div class="gallery">
-                                        
-                                        
+                                return (                                        
                                     <div className="eachPhoto" key={photo._id}>
                                         <Card sx={{ display: 'flex' }}>
                                             <Box className="cardContent" sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
@@ -64,35 +61,6 @@ const Artwork = ({ photos }) => {
                                             />
                                         </Card>
                                     </div>
-
-                                    </div>
-// 
-
-
-
-
-
-
-                                    // <div className="eachPhoto" key={photo._id}>
-                                    //     <Card sx={{ display: 'flex' }}>
-                                    //         <Box className="cardContent" sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
-                                    //             <CardContent  sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
-                                    //             <h1>
-                                    //                 { photo.title }
-                                    //             </h1>
-                                    //             <h2 variant="h2" color="rgb(213, 213, 213)" component="div">
-                                    //                 { photo.photoCollection }
-                                    //             </h2>
-                                    //             </CardContent>
-                                    //         </Box>
-                                    //         <CardMedia
-                                    //             component="img"
-                                    //             sx={{ width: 900, maxHeight: 700}}
-                                    //             image={photo.image}
-                                    //             alt="album cover"
-                                    //         />
-                                    //     </Card>
-                                    // </div>
                                 );
 
                             })
