@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Item from '@mui/material/ListItem';
 
@@ -55,132 +54,132 @@ const Admin = ({ photos, createPhotos }) => {
     };
 
     return (
-        <div className="adminContainer">
+        <div className="adminPageContainer">
 
-            <div className="adminForm">
-                <h1>Admin</h1>
+            <div className="adminLoginForm">
+                <h1 className="adminLoginFormH1">Admin Login</h1>
                 <form onSubmit={handleAdminSubmit}>
-                    <input type="text" value={guess} onChange={handleAdminFormChange} />
-                    <input type="submit" value='Submit' />
+                    <input className="submitButton" type="text" value={guess} onChange={handleAdminFormChange} />
+                    <input className="submitButton" type="submit" value='Submit' />
                 </form>
             </div>
 
            { access ? 
 
            <>
-           
-                <div className="adminRight">
-                    <div className="photoCard">
-                        { 
-                            photos.map((photo) => {
+                <div className="adminAccessContainer">
 
-                                return (
-                                    <div className="eachPhoto" key={photo._id}>
-                                        <Card sx={{ display: 'flex' }}>
-                                            <Box className="cardContent" sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
-                                                <CardContent  sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
-                                                <Typography sx={{color:'rgb(213, 213, 213)'}} component="div" variant="h3">
-                                                    { photo.title }
-                                                </Typography>
-                                                <Link to={`/mslp/${photo._id}`}>
-                                                    <h5>Edit Image</h5>
-                                                </Link>
-                                                </CardContent>
-                                            </Box>
-                                            <CardMedia
-                                                component="img"
-                                                sx={{ width: 300 }}
-                                                image={photo.image}
-                                                alt="album cover"
-                                            />
-                                        </Card>
-                                    </div>
-                                );
+                    <div className="adminAccessRight">
+                        <div className="photoCard">
+                            { 
+                                photos.map((photo) => {
 
-                            })
-                        };                        
+                                    return (
+                                        <div className="eachPhoto" key={photo._id}>
+                                            <Card sx={{ display: 'flex' }}>
+                                                <Box className="cardContent" sx={{ display: 'flex', flexDirection: 'column', width: 300 }}>
+                                                    <CardContent  sx={{ flex: '1 0 auto', backgroundColor:'black'}}>
+                                                    <h1>
+                                                        { photo.title }
+                                                    </h1>
+                                                    <Link to={`/mslp/${photo._id}`}>
+                                                        <h5>Edit Image</h5>
+                                                    </Link>
+                                                    </CardContent>
+                                                </Box>
+                                                <CardMedia
+                                                    component="img"
+                                                    sx={{ width: 300 }}
+                                                    image={photo.image}
+                                                    alt="album cover"
+                                                />
+                                            </Card>
+                                        </div>
+                                    );
+
+                                })
+                            };                        
+                        </div>
                     </div>
-                </div>
 
-                <div className="adminLeft">
-                    <div className="photoFormDiv">
-                        <Stack>
+                    <div className="adminAccessLeft">
+                        <div className="photoFormDiv">
+                            <Stack>
+                                <Item>
+                                    <h2>Upload New Photo</h2>
+                                </Item>
 
-                            <Item>
-                                <h2>Upload New Photo</h2>
-                            </Item>
-
-                            <Item>
-                                <form className="photoForm" onSubmit={handleNewPhotoSubmit}>
-                                    <Stack spacing={4}>
-                                        <Item>
-                                            <label>Photo Title </label>  
-                                            <input 
-                                                type="text" 
-                                                name="title" 
-                                                placeholder="photo title" 
-                                                value={newPhoto.title} 
-                                                onChange = {handlePhotoFormChange}
-                                                required
-                                            />
-                                        </Item>
-                                        <Item>
-                                            <label>Artist Name </label>
-                                            <input
-                                                type="text"
-                                                name="artist" 
-                                                placeholder="artist name" 
-                                                value={newPhoto.artist} 
-                                                onChange = {handlePhotoFormChange}
-                                                required
-                                            />
-                                        </Item>
-                                        <Item>
-                                            <label>Collection </label>
-                                            <input
-                                                type="text"
-                                                name="photoCollection" 
-                                                placeholder="collection title" 
-                                                value={newPhoto.photoCollection} 
-                                                onChange = {handlePhotoFormChange}
-                                                required
-                                            />
-                                        </Item>
-                                        <Item>
-                                            <label>Image URL </label>
-                                            <input
-                                                type="text"
-                                                name="image" 
-                                                placeholder="image URL"
-                                                value={newPhoto.image} 
-                                                onChange = {handlePhotoFormChange}
-                                            />
-                                        </Item>
-                                        <Item>
-                                            <label>Date Added </label>
-                                            <input
-                                                type="text"
-                                                name="dateAdded" 
-                                                placeholder="Month Day, Year" 
-                                                value={newPhoto.dateAdded} 
-                                                onChange = {handlePhotoFormChange}
-                                                required
-                                            />
-                                        </Item>
-                                        <Item>
-                                            <input className="submitButton" type="submit" value="Submit"/>
-                                        </Item>
-                                    </Stack>
-                                </form>
-                            </Item>
-
-                        </Stack>
+                                <Item>
+                                    <form className="photoForm" onSubmit={handleNewPhotoSubmit}>
+                                        <Stack spacing={4}>
+                                            <Item>
+                                                <label>Photo Title </label>  
+                                                <input className="photoInput"
+                                                    type="text" 
+                                                    name="title" 
+                                                    placeholder="photo title" 
+                                                    value={newPhoto.title} 
+                                                    onChange = {handlePhotoFormChange}
+                                                    required
+                                                />
+                                            </Item>
+                                            <Item>
+                                                <label>Artist Name </label>
+                                                <input className="photoInput"
+                                                    type="text"
+                                                    name="artist" 
+                                                    placeholder="artist name" 
+                                                    value={newPhoto.artist} 
+                                                    onChange = {handlePhotoFormChange}
+                                                    required
+                                                />
+                                            </Item>
+                                            <Item>
+                                                <label>Collection </label>
+                                                <input className="photoInput"
+                                                    type="text"
+                                                    name="photoCollection" 
+                                                    placeholder="collection title" 
+                                                    value={newPhoto.photoCollection} 
+                                                    onChange = {handlePhotoFormChange}
+                                                    required
+                                                />
+                                            </Item>
+                                            <Item>
+                                                <label>Image URL </label>
+                                                <input className="photoInput"
+                                                    type="text"
+                                                    name="image" 
+                                                    placeholder="image URL"
+                                                    value={newPhoto.image} 
+                                                    onChange = {handlePhotoFormChange}
+                                                />
+                                            </Item>
+                                            <Item>
+                                                <label>Date Added </label>
+                                                <input className="photoInput"
+                                                    type="text"
+                                                    name="dateAdded" 
+                                                    placeholder="Month Day, Year" 
+                                                    value={newPhoto.dateAdded} 
+                                                    onChange = {handlePhotoFormChange}
+                                                    required
+                                                />
+                                            </Item>
+                                            <Item>
+                                                <input className="submitButton" type="submit" value="Submit"/>
+                                            </Item>
+                                        </Stack>
+                                    </form>
+                                </Item>
+                            </Stack>
+                        </div>
                     </div>
+                    
                 </div>
-
              </>
 
-            : <h2 className="adminFormH2">Access Denied</h2> };
+            : <h2 className="adminLoginFormH2">Access Denied</h2> };
 
         </div>
     );
