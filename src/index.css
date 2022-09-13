@@ -173,6 +173,7 @@ code {
     border-radius: 7px;
     color: rgb(213, 213, 213);
     background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 10px 5px #888888;
   }
 
   .artworkH1 {
@@ -185,7 +186,7 @@ code {
     margin: 0;
     padding: 30px;
     font-family: Portico-Stencil-Rough;
-    font-size: 1.5rem;
+    font-size: 2rem;
     letter-spacing: .2rem;
     color: rgb(213, 213, 213);
     background-color: black;
@@ -227,9 +228,10 @@ code {
     font-family: Portico-Light;
     line-height: 15px;
     color:rgb(213, 213, 213);
+    line-height: 25px;
   }
 
-  /* Contact Page */
+/* Contact Page */
 
   .contactPage {
     background-color: rgb(213, 213, 213);

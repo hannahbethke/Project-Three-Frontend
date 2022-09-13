@@ -15,8 +15,8 @@ import './App.css';
 function App() {
   const [ photos, setPhotos ] = useState(null);
 
-  // const API_URL = 'https://ancient-cove-76773.herokuapp.com/api/photos/';
-  const API_URL = 'http://localhost:4000/api/photos';
+  const API_URL = 'https://ancient-cove-76773.herokuapp.com/api/photos/';
+  // const API_URL = 'http://localhost:4000/api/photos';
 
   const getPhotos = async () => {
       try {

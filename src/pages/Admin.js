@@ -7,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Stack from '@mui/material/Stack';
 import Item from '@mui/material/ListItem';
 
-const Admin = ({ photos, createPhotos }) => {
+const Admin = ({ photos, createPhoto }) => {
 
     const [guess, setGuess] = useState('');
     const [access, setAccess] = useState(false);
@@ -27,7 +27,6 @@ const Admin = ({ photos, createPhotos }) => {
         e.preventDefault();
         if (guess === process.env.REACT_APP_GUESS) {
             setAccess(true);
-            setGuess('');
         } else {
             setAccess(false);
             setGuess('');
@@ -43,7 +42,7 @@ const Admin = ({ photos, createPhotos }) => {
 
     const handleNewPhotoSubmit = (e) => {
         e.preventDefault();
-        createPhotos(newPhoto);
+        createPhoto(newPhoto);
         setNewPhoto({
             title: "",
             artist: "",
@@ -98,7 +97,7 @@ const Admin = ({ photos, createPhotos }) => {
                                     );
 
                                 })
-                            };                        
+                            }                        
                         </div>
                     </div>
 
@@ -167,7 +166,7 @@ const Admin = ({ photos, createPhotos }) => {
                                                 />
                                             </Item>
                                             <Item>
-                                                <input className="submitButton" type="submit" value="Submit"/>
+                                                <input className="submitButton" onClick={handleNewPhotoSubmit} type="submit" value="Submit"/>
                                             </Item>
                                         </Stack>
                                     </form>
@@ -179,7 +178,7 @@ const Admin = ({ photos, createPhotos }) => {
                 </div>
              </>
 
-            : <h2 className="adminLoginFormH2">Access Denied</h2> };
+            : <h2 className="adminLoginFormH2">Access Denied</h2> }
 
         </div>
     );

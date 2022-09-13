@@ -3,8 +3,7 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Stack from '@mui/material/Stack';
-import LinearProgress from '@mui/material/LinearProgress';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Artwork = ({ photos }) => {
     
@@ -12,9 +11,9 @@ const Artwork = ({ photos }) => {
 
         return (
             <>
-                <Stack sx={{ width: '100%', color: 'grey.500' }} spacing={2}>
-                    <LinearProgress color="inherit" />
-                </Stack>
+                <Box sx={{ display: 'flex' }}>
+                    <CircularProgress />
+                </Box>
             </>
         );
 
@@ -48,7 +47,7 @@ const Artwork = ({ photos }) => {
                                                 <h1>
                                                     { photo.title }
                                                 </h1>
-                                                <h2 variant="h2" color="rgb(213, 213, 213)" component="div">
+                                                <h2>
                                                     { photo.photoCollection }
                                                 </h2>
                                                 </CardContent>
