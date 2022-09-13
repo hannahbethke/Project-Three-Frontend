@@ -229,6 +229,29 @@ code {
     color:rgb(213, 213, 213);
   }
 
+  /* Contact Page */
+
+  .contactPage {
+    background-color: rgb(213, 213, 213);
+    min-height: 100vh;
+    font-family: Portico-Light;
+    font-size: larger;
+  }
+
+  .contactPageImg {
+    border-radius: 500px;
+    max-height: 300px;
+    margin: 100px;
+    margin-bottom: 10px;
+  }
+
+  .contactButtons {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+  }
 
 /* Admin Page  */
 
@@ -309,6 +332,11 @@ code {
 
   /* Show Page */
 
+  .showPageContainer {
+    height: 100vh;
+    background-color: black;
+  }
+
   .showImage {
     display:flex;
     justify-content: center;
@@ -317,27 +345,11 @@ code {
     background-color: rgb(213, 213, 213);
   }
 
-  /* Contact Page */
-
-  .contactPage {
-    background-color: rgb(213, 213, 213);
-    min-height: 100vh;
-    font-family: Portico-Light;
-    font-size: larger;
+  .showImageH2 {
+    padding: 0;
+    line-height: 20px;
   }
 
-  .contactPageImg {
-    border-radius: 500px;
-    max-height: 300px;
-    margin: 100px;
-    margin-bottom: 10px;
-  }
 
-  .contactButtons {
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-  }
+  
 
